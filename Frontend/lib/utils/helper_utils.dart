@@ -20,4 +20,13 @@ class HelperUtils {
     return utf8.decode(base64.decode(ciphertext));
   }
 
+  bool isEmailValid(String email) {
+    final regex = RegExp(r'^[\w-]+(\.[\w-]+)*@[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*(\.[a-zA-Z]{2,})$');
+    return regex.hasMatch(email);
+  }
+
+  bool isPhoneNumberValid(String phoneNumber) {
+    final regex = RegExp(r'^\+?[0-9]{1,3}-?[0-9]{6,14}$');
+    return regex.hasMatch(phoneNumber);
+  }
 }
