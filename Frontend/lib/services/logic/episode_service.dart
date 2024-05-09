@@ -5,6 +5,8 @@ class EpisodeService {
 
   static EpisodeService get instance => _instance;
 
+  static final String IDCorrect = "IDCorrect";
+
   bool createEpisode(String? Title, String? Description) {
     if (Title == null || Title.isEmpty)
       return false;
@@ -25,6 +27,14 @@ class EpisodeService {
     if (Description == null || Description.isEmpty)
       return false;
 
-    return true;
+    return ID == IDCorrect;
+  }
+
+  bool deleteEpisode(String? ID)
+  {
+    if (ID == null || ID.isEmpty)
+      return false;
+
+    return ID == IDCorrect;
   }
 }

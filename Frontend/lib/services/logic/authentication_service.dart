@@ -7,7 +7,7 @@ class AuthenticationService {
 
   static AuthenticationService get instance => _instance;
 
-  static late String PasswordCorrent = "password";
+  static final String PasswordCorrent = "password";
 
   bool signIn(String Username, String Password) {
     if (Username.isEmpty)
@@ -22,20 +22,20 @@ class AuthenticationService {
     return Password == PasswordCorrent;
   }
 
-  bool signUp(String Username, String Password, String email, String dob) {
+  bool signUp(String Username, String Password, String Email, String dob) {
     if (Username.isEmpty)
       return false;
 
     if (Password.isEmpty)
       return false;
 
-    if (email.isEmpty)
+    if (Email.isEmpty)
       return false;
 
     if (dob.isEmpty)
       return false;
 
-    if (!HelperUtils.isEmailValid(email))
+    if (!HelperUtils.isEmailValid(Email))
       return false;
 
     DateFormat dateFormat = DateFormat('dd/MM/yyyy');
@@ -49,7 +49,7 @@ class AuthenticationService {
     if (Password.length < 6)
       return false;
 
-    return Password == PasswordCorrent;
+    return true;
   }
 
   bool changePassword(String Username, String Password, String NewPassword, String ConfirmPassword) {

@@ -5,6 +5,7 @@ import 'package:poca/services/logic/podcast_service.dart';
 
 const String ID = "1";
 const String IDEmpty = "";
+const String IDCorrect = "IDCorrect";
 const String Title = "Title";
 const String TitleEmpty = "";
 const String Description = "Description";
@@ -127,10 +128,48 @@ void main() {
         expect(result, false);
       });
 
-      test('Edit a podcast success', () async {
+      test('ID is not exist', () async {
         // ACT
         final result = PodcastService.instance
             .editPodcast(ID, Title, Description, Channel, Topics);
+
+        // ASSERT
+        expect(result, false);
+      });
+
+      test('Edit a podcast success', () async {
+        // ACT
+        final result = PodcastService.instance
+            .editPodcast(IDCorrect, Title, Description, Channel, Topics);
+
+        // ASSERT
+        expect(result, true);
+      });
+    });
+
+    group('Delete podcast - ', () {
+      test('ID is empty', () async {
+        // ACT
+        final result = PodcastService.instance
+            .deletePodcast(IDEmpty);
+
+        // ASSERT
+        expect(result, false);
+      });
+
+      test('ID is not exist', () async {
+        // ACT
+        final result = PodcastService.instance
+            .deletePodcast(ID);
+
+        // ASSERT
+        expect(result, false);
+      });
+
+      test('Delete a podcast success', () async {
+        // ACT
+        final result = PodcastService.instance
+            .deletePodcast(IDCorrect);
 
         // ASSERT
         expect(result, true);

@@ -7,6 +7,8 @@ class PodcastService {
 
   static PodcastService get instance => _instance;
 
+  static final String IDCorrect = "IDCorrect";
+
   bool createPodcast(String? Title, String? Description, ChannelModel? Channel, List<Topic>? Topic) {
     if (Title == null || Title.isEmpty)
       return false;
@@ -39,6 +41,14 @@ class PodcastService {
     if (Topic == null || Topic.length == 0)
       return false;
     
-    return true;
+    return ID == IDCorrect;
+  }
+
+  bool deletePodcast(String? ID)
+  {
+    if (ID == null || ID.isEmpty)
+      return false;
+
+    return ID == IDCorrect;
   }
 }

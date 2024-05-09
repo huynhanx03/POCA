@@ -180,20 +180,6 @@ void main() {
         // ASSERT
         expect(result, false);
       });
-      
-      test('Password is incorrect', () async {
-        // ARRANGE
-        final username = "username";
-        final password = "incorrectpassword";
-        final email = "email@gmail.com";
-        final dob = "20/10/2003";
-
-        // ACT
-        final result = AuthenticationService.instance.signUp(username, password, email, dob);
-        
-        // ASSERT
-        expect(result, false);
-      });
 
       test('Sign up success', () async {
         // ARRANGE
@@ -281,7 +267,7 @@ void main() {
         expect(result, false);
       });
 
-      test('NewPassword is incorrent', () async {
+      test('ConfirmPassword is incorrent', () async {
         // ARRANGE
         final username = "username";
         final password = "password";
